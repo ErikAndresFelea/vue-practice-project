@@ -14,8 +14,8 @@
             title: String,
         },
         components: {
-            Button
-        }
+            Button,
+        },
     }
 </script>
 
