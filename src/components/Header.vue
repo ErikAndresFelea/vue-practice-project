@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Button from "./Button";
+import Button from "./Button"
 
 export default {
   name: "Header",
@@ -16,7 +16,7 @@ export default {
   components: {
     Button,
   },
-};
+}
 </script>
 
 <style scoped>
