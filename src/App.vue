@@ -1,24 +1,24 @@
 <template>
   <div class="container">
-    <Header @toggle-add-task="toggleAddTask" title="Task Tracker" :showAddTask="showAddTask" />
+    <HeaderComponent @toggle-add-task="toggleAddTask" title='Task Tracker' :showAddTask="showAddTask" />
     <div v-if="showAddTask">
-      <AddTask @add-task="addTask" />
+      <AddTaskComponent @add-task="addTask" />
     </div>
-    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
+    <TasksComponent @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header"
-import Tasks from "./components/Tasks"
-import AddTask from "./components/AddTask"
+import HeaderComponent from './components/MyHeader'
+import TasksComponent from './components/MyTasks'
+import AddTaskComponent from './components/MyAddTask'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    Header,
-    Tasks,
-    AddTask,
+    HeaderComponent,
+    TasksComponent,
+    AddTaskComponent,
   },
   data() {
     return {
@@ -34,7 +34,7 @@ export default {
       this.tasks = [...this.tasks, task]
     },
     deleteTask(id) {
-      if (confirm("Are you sure?")) {
+      if (confirm('Are you sure?')) {
         this.tasks = this.tasks.filter((task) => task.id !== id)
       }
     },
@@ -48,20 +48,20 @@ export default {
     this.tasks = [
       {
         id: 1,
-        text: "Doctors appointment",
-        day: "March 1st at 2:30pm",
+        text: 'Doctors appointment',
+        day: 'March 1st at 2:30pm',
         reminder: true,
       },
       {
         id: 2,
-        text: "Meeting at school",
-        day: "March 3rd at 1:30pm",
+        text: 'Meeting at school',
+        day: 'March 3rd at 1:30pm',
         reminder: true,
       },
       {
         id: 3,
-        text: "Food shopping",
-        day: "March 3rd at 11:00am",
+        text: 'Food shopping',
+        day: 'March 3rd at 11:00am',
         reminder: false,
       },
     ]

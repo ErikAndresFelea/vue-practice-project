@@ -19,11 +19,11 @@
 
 <script>
 export default {
-  name: "AddTask",
+  name: 'AddTaskComponent',
   data() {
     return {
-      text: "",
-      day: "",
+      text: '',
+      day: '',
       reminder: false,
     }
   },
@@ -32,7 +32,7 @@ export default {
       e.preventDefault()
 
       if (!this.text) {
-        alert("Please add a task")
+        alert('Please add a task')
         return
       }
 

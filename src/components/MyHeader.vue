@@ -1,21 +1,21 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <Button @btn-click="$emit('toggle-add-task')" :text="showAddTask ? 'Close' : 'Add Task'" :color="showAddTask ? 'red' : 'green'" />
+    <ButtonComponent @btn-click="$emit('toggle-add-task')" :text="showAddTask ? 'Close' : 'Add Task'" :color="showAddTask ? 'red' : 'green'" />
   </header>
 </template>
 
 <script>
-import Button from "./Button"
+import ButtonComponent from './MyButton'
 
 export default {
-  name: "Header",
+  name: 'HeaderComponent',
   props: {
     title: String,
     showAddTask: Boolean
   },
   components: {
-    Button,
+    ButtonComponent,
   },
 }
 </script>
