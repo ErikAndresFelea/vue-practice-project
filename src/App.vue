@@ -51,9 +51,19 @@ export default {
         ) : alert('Error deleting task')
       }
     },
-    toggleReminder(id) {
+    async toggleReminder(id) {
+      const taskToggle = await this.fetchTask(id)
+      const updTask = {...taskToggle, reminder: !taskToggle.reminder}
+      const res = await fetch(`api/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updTask)
+      })
+      const data = await res.json()
       this.tasks = this.tasks.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
+        task.id === id ? { ...task, reminder: data.reminder } : task
       )
     },
     async fetchTasks() {
@@ -62,7 +72,7 @@ export default {
       return data
     },
     async fetchTask(id) {
-      const res = await fetch(`api/tasks${id}`)
+      const res = await fetch(`api/tasks/${id}`)
       const data = await res.json()
       return data
     },
