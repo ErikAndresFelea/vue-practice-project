@@ -17,12 +17,6 @@
       "text": "Food shopping",
       "day": "March 7th at 2:00pm",
       "reminder": false
-    },
-    {
-      "id": 6997,
-      "text": "Implementar servidor",
-      "day": "24 de Diciembre a las 9:00am",
-      "reminder": true
     }
   ]
 }
