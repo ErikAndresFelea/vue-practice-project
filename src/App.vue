@@ -5,11 +5,13 @@
       <AddTaskComponent @add-task="addTask" />
     </div>
     <TasksComponent @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
+    <FooterComponent />
   </div>
 </template>
 
 <script>
 import HeaderComponent from './components/MyHeader'
+import FooterComponent from './components/MyFooter'
 import TasksComponent from './components/MyTasks'
 import AddTaskComponent from './components/MyAddTask'
 
@@ -19,6 +21,7 @@ export default {
     HeaderComponent,
     TasksComponent,
     AddTaskComponent,
+    FooterComponent,
   },
   data() {
     return {
