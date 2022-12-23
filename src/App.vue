@@ -30,8 +30,16 @@ export default {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
     },
-    addTask(task) {
-      this.tasks = [...this.tasks, task]
+    async addTask(task) {
+      const res = await fetch('api/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(task)
+      })
+      const data = await res.json()
+      this.tasks = [...this.tasks, data]
     },
     deleteTask(id) {
       if (confirm('Are you sure?')) {
@@ -44,12 +52,12 @@ export default {
       )
     },
     async fetchTasks() {
-      const res = await fetch('http://localhost:5000/tasks')
+      const res = await fetch('api/tasks')
       const data = await res.json()
       return data
     },
     async fetchTask(id) {
-      const res = await fetch(`http://localhost:5000/tasks${id}`)
+      const res = await fetch(`api/tasks${id}`)
       const data = await res.json()
       return data
     },
